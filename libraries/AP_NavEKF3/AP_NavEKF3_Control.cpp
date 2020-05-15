@@ -393,7 +393,9 @@ void NavEKF3_core::checkAttitudeAlignmentStatus()
     }
 
     // submit yaw and magnetic field reset request
-    if (!yawAlignComplete && tiltAlignComplete && use_compass()) {
+    // edit for EKF3 SLAM no Compass 2020.05.15
+    // if (!yawAlignComplete && tiltAlignComplete && use_compass()) {
+    if (!yawAlignComplete && tiltAlignComplete) {
             magYawResetRequest = true;
     }
 }

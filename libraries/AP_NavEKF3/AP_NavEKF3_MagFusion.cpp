@@ -240,7 +240,9 @@ void NavEKF3_core::SelectMagFusion()
     magDataToFuse = storedMag.recall(magDataDelayed,imuDataDelayed.time_ms);
 
     // Control reset of yaw and magnetic field states if we are using compass data
-    if (magDataToFuse && use_compass()) {
+    // edit for SLAM EKF3 2020.05.15 
+    // if (magDataToFuse && use_compass()) {
+    if (magDataToFuse) {
         controlMagYawReset();
     }
 
